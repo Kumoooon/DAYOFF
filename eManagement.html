@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="test">
+      <div id="addEmployeeContainer" style="display: none">
+        <form id="inputForm" action="/eManagement/create" method="post">
+          <div class="form-group">
+            <div class="label">이름</div>
+            <input type="text" class="form-control" name="name" />
+          </div>
+          <div class="form-group">
+            <div class="label">직급</div>
+            <input type="text" class="form-control" name="position" />
+          </div>
+          <div class="form-group">
+            <div class="label">전체 연차</div>
+            <input type="integer" class="form-control" name="annual" />
+          </div>
+
+          <button class="exitBtn">취소</button>
+          <button class="createBtn" type="submit">저장</button>
+        </form>
+      </div>
+      <button onclick="addEmployeeOnOff()" class="addEmployeeBtn">+</button>
+      <div class="test2"></div>
+      <div class="test3"></div>
+    </div>
+    <script src="eManagement.js"></script>
+  </body>
+</html>
