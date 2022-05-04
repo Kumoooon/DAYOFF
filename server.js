@@ -30,9 +30,7 @@ app.get("/employee", (req, res) => {
   });
   client.end;
 });
-
 app.get("/eManagement", (req, res) => {
-  console.log("I got a eManagement");
   res.sendFile(__dirname + "/eManagement.html");
 });
 
@@ -62,14 +60,11 @@ app.delete("/eManagement/:id", (req, res) => {
 });
 
 app.put("/employee/:id", (req, res) => {
-  //params로 id를 특정해서 업뎃한다.차후 수정
   const change = req.body;
   let updateQuery = `UPDATE employee
-    set menu = '${change.menu}',
-    kcal = '${change.kcal}',
-    fat = '${change.fat}',
-    protein = '${change.protein}',
-    ingredients = '${change.ingredients}'
+    set name = '${change.name}',
+    position = '${change.position}',
+    annual = '${change.annual}',
     WHERE id = ${req.params.id}`;
   client.query(updateQuery, (err, result) => {
     if (!err) {

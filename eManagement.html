@@ -5,32 +5,89 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kirang+Haerang&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
+
     <title>Document</title>
   </head>
   <body>
+    <iframe
+      src="#"
+      name="iframe"
+      style="
+        width: 1px;
+        height: 1px;
+        border: 0;
+        visibility: hidden;
+        z-index: 3;
+        position: absolute;
+      "
+    ></iframe>
     <div class="test">
+      <div class="nav_bar">
+        
+        <input class="searchArea" placeholder="검색">
+          
+          <div class="glass"></div>
+      
+        </input>
+
+        <div class="f11" onclick="toggleScreen()"></div>
+        <div class="gohome"><div class="x"></div><div class="y"></div></div>
+
+      </div>
+      <div class="sideBar"><div class="addEmployee" onclick="addEmployeeOnOff()">직원추가</div></div>
+
       <div id="addEmployeeContainer" style="display: none">
-        <form id="inputForm" action="/eManagement/create" method="post">
+        <form
+          id="inputForm"
+          action="/eManagement"
+          method="post"
+          target="iframe"
+        >
           <div class="form-group">
             <div class="label">이름</div>
-            <input type="text" class="form-control" name="name" />
+            <input type="text" class="form-control" name="name" required />
           </div>
           <div class="form-group">
             <div class="label">직급</div>
-            <input type="text" class="form-control" name="position" />
+            <input type="text" class="form-control" name="position" required />
           </div>
           <div class="form-group">
-            <div class="label">전체 연차</div>
-            <input type="integer" class="form-control" name="annual" />
+            <div class="label">전체 연차 (일)</div>
+            <input type="integer" class="form-control" name="annual" required />
           </div>
 
-          <button class="exitBtn">취소</button>
+          <div class="exitBtn" onclick="window.location.reload()">닫기</div>
           <button class="createBtn" type="submit">저장</button>
         </form>
       </div>
-      <button onclick="addEmployeeOnOff()" class="addEmployeeBtn">+</button>
-      <div class="test2"></div>
-      <div class="test3"></div>
+      <div id="editEmployeeContainer" style="display: none">
+        <form
+          id="inputForm"
+          action="/eManagement"
+          method="post"
+          target="iframe"
+        >
+          <div class="form-group">
+            <div class="label">이름</div>
+            <input type="text" class="form-control" name="name" required />
+          </div>
+          <div class="form-group">
+            <div class="label">직급</div>
+            <input type="text" class="form-control" name="position" required />
+          </div>
+          <div class="form-group">
+            <div class="label">전체 연차 (일)</div>
+            <input type="integer" class="form-control" name="annual" required />
+          </div>
+
+          <div class="exitBtn" onclick="window.location.reload()">닫기</div>
+          <button class="createBtn" type="submit">저장</button>
+        </form>
+      </div>
+      <div id="app"></div>
     </div>
     <script src="eManagement.js"></script>
   </body>

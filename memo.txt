@@ -1,0 +1,25 @@
+      <div class="test2"></div>
+      <div class="test3"></div>
+      .test2 {
+  display: inline-block;
+  boder: 1px solid black;
+  width: 33%;
+  height: 90%;
+  position: absolute;
+  bottom: 5%;
+  left: 2.5%;
+  background-color: rgba(255, 228, 197, 0.3);
+  border-radius: 4px;
+}
+.test3 {
+  boder: 1px solid black;
+  width: 43%;
+  height: 90%;
+  position: absolute;
+  left: 52%;
+  bottom: 5%;
+
+  background-color: RGBa(2, 151, 224, 0.3);
+  border-radius: 4px;
+}
+--> 모래색, 파란색 창 두 개... 
