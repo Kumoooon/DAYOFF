@@ -41,53 +41,30 @@
 
       <div id="addEmployeeContainer" style="display: none">
         <form
+          class="add-post-form"
           id="inputForm"
-          action="/eManagement"
-          method="post"
-          target="iframe"
+          
         >
           <div class="form-group">
             <div class="label">이름</div>
-            <input type="text" class="form-control" name="name" required />
+            <input type="text" class="form-control" id="name" required />
           </div>
           <div class="form-group">
             <div class="label">직급</div>
-            <input type="text" class="form-control" name="position" required />
+            <input type="text" class="form-control" id="position" required />
           </div>
           <div class="form-group">
             <div class="label">전체 연차 (일)</div>
-            <input type="integer" class="form-control" name="annual" required />
+            <input type="integer" class="form-control" id="annual" required />
           </div>
 
           <div class="exitBtn" onclick="window.location.reload()">닫기</div>
           <button class="createBtn" type="submit">저장</button>
         </form>
       </div>
-      <div id="editEmployeeContainer" style="display: none">
-        <form
-          id="inputForm"
-          action="/eManagement"
-          method="post"
-          target="iframe"
-        >
-          <div class="form-group">
-            <div class="label">이름</div>
-            <input type="text" class="form-control" name="name" required />
-          </div>
-          <div class="form-group">
-            <div class="label">직급</div>
-            <input type="text" class="form-control" name="position" required />
-          </div>
-          <div class="form-group">
-            <div class="label">전체 연차 (일)</div>
-            <input type="integer" class="form-control" name="annual" required />
-          </div>
 
-          <div class="exitBtn" onclick="window.location.reload()">닫기</div>
-          <button class="createBtn" type="submit">저장</button>
-        </form>
-      </div>
-      <div id="app"></div>
+   
+      <div class="posts-list row"></div>
     </div>
     <script src="eManagement.js"></script>
   </body>

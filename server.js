@@ -30,6 +30,15 @@ app.get("/employee", (req, res) => {
   });
   client.end;
 });
+
+app.get("/orders", (req, res) => {
+  client.query(`SELECT * FROM orders`, (err, result) => {
+    if (!err) {
+      res.send(result.rows);
+    }
+  });
+  client.end;
+});
 app.get("/eManagement", (req, res) => {
   res.sendFile(__dirname + "/eManagement.html");
 });

@@ -1,29 +1,48 @@
-const ul = document.getElementById("employee");
-const list = document.createDocumentFragment();
+const postsList = document.querySelector(".posts-list");
+const addPostForm = document.querySelector(".add-post-form");
+const nameValue = document.getElementById("name");
+const positionValue = document.getElementById("position");
+const annualValue = document.getElementById("annual");
 const url = "http://localhost:3000/employee";
 const url2 = "http://localhost:3000/eManagement";
-
-function getData() {
-  fetch(url)
-    .then((response) => {
-      return response.json();
-    })
+let output = "";
+const renderPosts = (posts) => {
+  posts.forEach((post) => {
+    output += `<div class = "userList" ><div class = "person"  onclick="editEmployeeOnOff()"></div><div class="name">| ${post.name}</div><div class="position">| ${post.position}</div></div>
+`;
+  });
+  postsList.innerHTML = output;
+};
+fetch(url)
+  .then((res) => res.json())
+  .then((data) => {
+    renderPosts(data);
+  });
+postsList.addEventListener("click", () => {
+  console.log("halo");
+});
+addPostForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fetch(url2, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: nameValue.value,
+      position: positionValue.value,
+      annual: annualValue.value,
+    }),
+  })
+    .then((res) => res.json())
     .then((data) => {
-      let list = data;
-      console.log(list);
-      const getEmployee = list
-        .map((employee) => {
-          return `<div class = "userList" ><div class = "person"  onclick="editEmployeeOnOff()"></div><div class="name">| ${employee.name}</div><div class="position">| ${employee.position}</div></div>   
-          `;
-        })
-        .join("");
-      console.log(getEmployee);
-      document.querySelector("#app").innerHTML = `${getEmployee}`;
-    })
-    .catch((error) => console.log("fetch 에러!"));
-}
+      const dataArr = [];
+      dataArr.push(data);
+      renderPosts(data);
+    });
+});
 
-getData();
+//http://localhost:3000/employee
 
 // function postData() {
 //   fetch(url2, {
